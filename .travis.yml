@@ -1,0 +1,61 @@
+group: edge
+dist: trusty
+
+language: java
+jdk:
+  - openjdk8
+  - oraclejdk8
+
+install: true
+before_install:
+
+  # install docker-compose
+  - sudo apt update
+  - sudo apt install -y python-pip curl jq libxml2-utils
+  - sudo pip install docker-compose httpie
+  - sudo usermod -aG docker $(whoami)
+
+  # kill whatever punning on postgres / rabbitmq port
+  - sudo kill $(sudo lsof -t -i:5432) | true
+  - sudo kill $(sudo lsof -t -i:5672) | true
+  - sudo kill $(sudo lsof -t -i:27017) | true
+
+script:
+  # gitbbok
+  - bash gradlew clean build docs
+
+  # all
+  - export ROOT=$PWD
+  - >
+    for path in \
+      01-spring-kotlin-example \
+    ; do
+
+      cd "$ROOT/$path"
+      bash gradlew clean build
+
+    done;
+
+  # 01 e2e
+  - cd $ROOT/01-spring-kotlin-example
+  - bash gradlew clean build
+  - sudo mkdir -p /var/app
+  - sudo mv -f ./app/build/libs/*.jar /var/app/01.jar
+  - sudo ln -s /var/app/01.jar /etc/init.d/01
+  - sudo service 01 start
+  - sleep 15
+  - sudo service 01 stop
+
+after_script:
+  - bash gradlew --stop
+
+before_cache:
+  - rm -rf $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -rf $HOME/.gradle/caches/*/plugin-resolution/
+
+cache:
+  directories:
+    - $HOME/.m2/
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+    - gitbook/node_modules/

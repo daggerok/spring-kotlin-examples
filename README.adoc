@@ -1,0 +1,9 @@
+= spring-kotlin-examples image:https://travis-ci.org/daggerok/spring-kotlin-examples.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/spring-kotlin-examples"]
+
+this repository is containing spring kotlin examples
+
+//. link:01-spring-kotlin-example[Kotlin Example]
+
+links:
+
+. link:https://docs.spring.io/spring/docs/current/spring-framework-reference/kotlin.html[Reference]
