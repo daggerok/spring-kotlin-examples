@@ -21,9 +21,6 @@ before_install:
   - sudo kill $(sudo lsof -t -i:27017) | true
 
 script:
-  # gitbbok
-  - bash gradlew clean build docs
-
   # all
   - export ROOT=$PWD
   - >
