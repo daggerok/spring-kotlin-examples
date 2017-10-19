@@ -25,6 +25,7 @@ script:
   - export ROOT=$PWD
   - >
     for path in \
+      reactive-secured-sse \
       reactive-kotlin-see \
       spring-kotlin-example \
     ; do

@@ -1,0 +1,6 @@
+dependencies {
+  compile("org.springframework.boot:spring-boot-starter-data-mongodb-reactive")
+//  compile("org.springframework.boot:spring-boot-starter-security-reactive")
+  compile("de.flapdoodle.embed:de.flapdoodle.embed.mongo")
+//  testCompile("org.springframework.security:spring-security-test")
+}

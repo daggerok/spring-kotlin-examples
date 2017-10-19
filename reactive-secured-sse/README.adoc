@@ -1,4 +1,4 @@
-= spring-boot-reactive kotlin SSE image:https://travis-ci.org/daggerok/spring-kotlin-examples.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/spring-kotlin-examples"]
+= spring-boot secured reactive kotlin SSE image:https://travis-ci.org/daggerok/spring-kotlin-examples.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/spring-kotlin-examples"]
 
 [source,bash]
 ----
