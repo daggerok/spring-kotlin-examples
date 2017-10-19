@@ -2,5 +2,6 @@
 
 [source,bash]
 ----
+./gradlew clean build
 ./gradlew bootRun --parallel
 ----
