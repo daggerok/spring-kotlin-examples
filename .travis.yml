@@ -44,16 +44,7 @@ script:
   - sleep 15
   - sudo service 01 stop
 
-after_script:
-  - bash gradlew --stop
-
-before_cache:
-  - rm -rf $HOME/.gradle/caches/modules-2/modules-2.lock
-  - rm -rf $HOME/.gradle/caches/*/plugin-resolution/
-
 cache:
   directories:
     - $HOME/.m2/
-    - $HOME/.gradle/caches/
-    - $HOME/.gradle/wrapper/
-    - gitbook/node_modules/
+    - $HOME/.gradle
