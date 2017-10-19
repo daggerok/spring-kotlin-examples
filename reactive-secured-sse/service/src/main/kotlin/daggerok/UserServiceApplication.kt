@@ -9,6 +9,8 @@ import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository
 import org.springframework.http.MediaType.TEXT_EVENT_STREAM
+import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity
+import org.springframework.security.core.userdetails.MapUserDetailsRepository
 import org.springframework.stereotype.Repository
 import org.springframework.stereotype.Service
 import org.springframework.web.reactive.function.server.ServerResponse.ok
@@ -48,6 +50,24 @@ class WebFluxRoutesConfig(val service: UserService) {
     GET("/{id}", { ok().body(service.one(it.pathVariable("id")), User::class.java) })
     GET("/{id}/events", { ok().contentType(TEXT_EVENT_STREAM).body(service.stream(it.pathVariable("id")), UserEvent::class.java) })
   }
+}
+
+@Configuration
+@EnableWebFluxSecurity
+class SecurityConfig {
+
+  fun userDetailsOf(id: String, roles: Array<String>) =
+      org.springframework.security.core.userdetails.User
+          .withUsername(id)
+          .password(id)
+          .roles(*roles)
+          .build()
+
+  @Bean
+  fun userDetailsRepository() = MapUserDetailsRepository(
+      userDetailsOf("admin", arrayOf("ADMIN", "USER")),
+      userDetailsOf("user", arrayOf("USER"))
+  )
 }
 
 @SpringBootApplication

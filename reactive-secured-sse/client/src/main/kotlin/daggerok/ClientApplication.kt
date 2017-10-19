@@ -6,20 +6,30 @@ import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.web.reactive.function.client.ExchangeFilterFunctions
 import org.springframework.web.reactive.function.client.WebClient
+import reactor.core.publisher.Flux
+import reactor.core.publisher.Mono
 import java.time.Duration
 import java.time.LocalDateTime
 
 @Configuration
 class WebClientConfiguration {
 
-  @Value("\${app.user-service.host:127.0.0.1}")
+  @Value("\${app.user-service.host}")
   var serviceHost: String? = null
+
+  @Value("\${app.user-service.username}")
+  var serviceUsername: String? = null
+
+  @Value("\${app.user-service.password}")
+  var servicePassword: String? = null
 
   @Bean
   fun userWebClient() = WebClient
       .create("http://$serviceHost:8080")
       .mutate()
+      .filter(ExchangeFilterFunctions.basicAuthentication(serviceUsername!!, servicePassword!!))
       .build()
 }
 
@@ -32,23 +42,23 @@ class ClientApplication {
   @Bean
   fun runner(userWebClient: WebClient) = ApplicationRunner {
 
-    userWebClient
+    val delayStartup = Mono.delay(Duration.ofSeconds(5))
+    val eventStream = userWebClient
         .get()
-        // get all users: `http :8080`
         .uri("")
         .retrieve()
         .bodyToFlux(User::class.java)
-        // service start delay on `./gradlew bootRun --parallel`
-        .delayElements(Duration.ofSeconds(3))
         .flatMap {
           userWebClient
               .get()
-              // get event stream for particular user: `http --stream :8080/$userId/events`
               .uri("/{id}/events", it.id)
               .retrieve()
               .bodyToFlux(UserEvent::class.java)
         }
         .doOnError { println("f*ck: ${it.localizedMessage}") }
+
+    Flux.concat(delayStartup, eventStream)
+        .skip(1) // skip delayStartup subscription
         .subscribe({ println("subscribe: $it\n") })
   }
 }

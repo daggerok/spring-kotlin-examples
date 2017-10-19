@@ -1,0 +1,6 @@
+server:
+  port: 8081
+app:
+  user-service.host: ${$APP_USER_SERVICE_HOST:127.0.0.1}
+  user-service.username: ${$APP_USER_SERVICE_USERNAME:user}
+  user-service.password: ${$APP_USER_SERVICE_PASSWORD:user}
