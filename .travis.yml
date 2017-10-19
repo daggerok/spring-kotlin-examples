@@ -28,7 +28,7 @@ script:
   - export ROOT=$PWD
   - >
     for path in \
-      01-spring-kotlin-example \
+      spring-kotlin-example \
     ; do
 
       cd "$ROOT/$path"
@@ -37,7 +37,7 @@ script:
     done;
 
   # 01 e2e
-  - cd $ROOT/01-spring-kotlin-example
+  - cd $ROOT/spring-kotlin-example
   - bash gradlew clean build
   - sudo mkdir -p /var/app
   - sudo mv -f ./app/build/libs/*.jar /var/app/01.jar

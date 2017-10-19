@@ -2,7 +2,7 @@
 
 this repository is containing spring kotlin examples
 
-//. link:01-spring-kotlin-example[Kotlin Example]
+. link:spring-kotlin-example[Kotlin Example]
 
 links:
 
