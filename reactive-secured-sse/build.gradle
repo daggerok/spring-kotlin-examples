@@ -50,9 +50,9 @@ subprojects {
     compile("org.springframework.boot:spring-boot-starter-actuator")
     compileOnly("org.projectlombok:lombok")
     runtime("org.springframework.boot:spring-boot-devtools")
-    testCompileOnly("org.projectlombok:lombok")
-    testCompile("org.springframework.boot:spring-boot-starter-test")
-    testCompile("io.projectreactor:reactor-test")
+//    testCompileOnly("org.projectlombok:lombok")
+//    testCompile("org.springframework.boot:spring-boot-starter-test")
+//    testCompile("io.projectreactor:reactor-test")
   }
 }
 
