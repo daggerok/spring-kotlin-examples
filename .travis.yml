@@ -7,8 +7,8 @@ jdk:
   - oraclejdk8
 
 install: true
-#before_install:
-#
+before_install:
+
 #  # install docker-compose
 #  - sudo apt update
 #  - sudo apt install -y python-pip curl jq libxml2-utils
@@ -18,7 +18,7 @@ install: true
 #  # kill whatever punning on postgres / rabbitmq port
 #  - sudo kill $(sudo lsof -t -i:5432) | true
 #  - sudo kill $(sudo lsof -t -i:5672) | true
-#  - sudo kill $(sudo lsof -t -i:27017) | true
+  - sudo kill $(sudo lsof -t -i:27017) | true
 
 script:
   # all
