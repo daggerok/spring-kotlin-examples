@@ -10,6 +10,7 @@ this repository is containing spring kotlin examples
 . link:../../../spark-kotlin-micro/[kotlin microservice using sparkjava]
 . link:../../../kotlin-ktor/[kotlin ktor framework]
 . link:../../../ktboot/[one more kotlin spring-boot example]
+. link:../../../learn-jvm[compare jvm languages using spring-boot: java, groovy, scala, kotlin]
 
 links:
 
