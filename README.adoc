@@ -15,6 +15,8 @@ this repository is containing spring kotlin examples
 . link:../../../gradle-inclide-builds/[gradle inclide builds]
 . link:../../../spring-data-examples/tree/master/key-value/[kotlin, webflix and spring-data-keyvalue]
 . link:../../../spring-data-examples/tree/master/key-value-hazelcast/[kotlin and spring-data-hazelcast]
+. link:../../../spring-5-examples/tree/master/spring-shell[Spring shell / webflux / spring-data-keyvalue / kotlin]
+. link:../../../spring-5-examples/tree/master/reactive-websocket-sse/[Reactive WebSocket SSE]
 
 links:
 
