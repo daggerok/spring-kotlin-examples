@@ -1,6 +1,6 @@
 = spring-kotlin-examples image:https://travis-ci.org/daggerok/spring-kotlin-examples.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/spring-kotlin-examples"]
 
-This repository is containing my kotlin examples
+This repository contains some my kotlin examples and links to other my repos with kotlin projects.
 
 . link:spring-kotlin-example/[Kotlin Example]
 . link:reactive-kotlin-sse/[Reactive Kotlin SSE service and client]
