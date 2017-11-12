@@ -9,6 +9,7 @@ this repository is containing spring kotlin examples
 . link:../../../kotlin-ratpack-spring-boot-mongo-hateoas/[Kotlin, Ratpack, Spring Boot, MongoDB, HATEOAS]
 . link:../../../spark-kotlin-micro/[kotlin microservice using sparkjava]
 . link:../../../kotlin-ktor/[kotlin ktor framework]
+. link:../../../ktboot/[one more kotlin spring-boot example]
 
 links:
 
