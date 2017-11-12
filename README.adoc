@@ -5,6 +5,7 @@ this repository is containing spring kotlin examples
 . link:spring-kotlin-example/[Kotlin Example]
 . link:reactive-kotlin-sse/[Reactive Kotlin SSE service and client]
 . link:reactive-secured-sse/[Spring Boot reactive security and Kotlin SSE]
+. link:boot-graphql/[Spring Boot, Kotlin, GrapthQL]
 
 links:
 
