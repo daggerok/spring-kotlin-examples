@@ -1,3 +1,0 @@
-= boot-graphql
-
-Kotlin, GrapthQL, Spring Boot: link:../../../../boot-graphql/[check it out!]
