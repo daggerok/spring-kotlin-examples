@@ -1,3 +1,0 @@
-= spark-kotlin-micro
-
-Kotlin microservice using sparkjava link:../../../../spark-kotlin-micro/[check it out!]
