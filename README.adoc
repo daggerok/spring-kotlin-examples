@@ -7,7 +7,7 @@ this repository is containing spring kotlin examples
 . link:reactive-secured-sse/[Spring Boot reactive security and Kotlin SSE]
 . link:../../../boot-graphql/[Spring Boot, Kotlin, GrapthQL]
 . link:../../../kotlin-ratpack-spring-boot-mongo-hateoas/[Kotlin, Ratpack, Spring Boot, MongoDB, HATEOAS]
-. libk:../../../spark-kotlin-micro/[kotlin microservice using sparkjava]
+. link:../../../spark-kotlin-micro/[kotlin microservice using sparkjava]
 
 links:
 
