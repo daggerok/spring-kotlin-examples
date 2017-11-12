@@ -13,6 +13,8 @@ this repository is containing spring kotlin examples
 . link:../../../learn-jvm[compare jvm languages using spring-boot: java, groovy, scala, kotlin]
 . link:../../../spring-cloud-zuul-gateway/[spring-cloud could be even more shorten with kotlin]
 . link:../../../gradle-inclide-builds/[gradle inclide builds]
+. link:../../../spring-data-examples/tree/master/key-value/[kotlin, webflix and spring-data-keyvalue]
+. link:../../../spring-data-examples/tree/master/key-value-hazelcast/[kotlin and spring-data-hazelcast]
 
 links:
 
