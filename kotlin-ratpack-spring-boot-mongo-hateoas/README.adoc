@@ -1,0 +1,3 @@
+= kotlin-ratpack-spring-boot-mongo-hateoas
+
+Kotlin, Ratpack, Spring Boot, MongoDB, HATEOAS: link:../../../../kotlin-ratpack-spring-boot-mongo-hateoas/[check it out!]
