@@ -17,6 +17,7 @@ This repository contains some my kotlin examples and links to other my repos wit
 . link:../../../spring-data-examples/tree/master/key-value-hazelcast/[kotlin and spring-data-hazelcast]
 . link:../../../spring-5-examples/tree/master/spring-shell[Spring shell / webflux / spring-data-keyvalue / kotlin]
 . link:../../../spring-5-examples/tree/master/reactive-websocket-sse/[Reactive WebSocket SSE]
+. link:https://github.com/daggerok/spring-examples/tree/master/axon-counter[Kotlin Axon Counter example]
 
 links:
 
