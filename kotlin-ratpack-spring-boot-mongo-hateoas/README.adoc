@@ -1,0 +1,11 @@
+= kotlin ratpack spring-boot mongo hateoas image:https://travis-ci.org/daggerok/kotlin-ratpack-spring-boot-mongo-hateoas.svg?branch=master["Build Status", link=https://travis-ci.org/daggerok/kotlin-ratpack-spring-boot-mongo-hateoas]
+
+//tag::content[]
+
+Mixed app using ratpack, spring-boot
+with mongodb and HATEOAS REST API repository written on kotlin.
+And it's f*cking awesome! =)
+
+. link:https://github.com/daggerok/kotlin-ratpack-spring-boot-mongo-hateoas/[spring-boot documentation]
+
+//end::content[]
