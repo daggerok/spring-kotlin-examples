@@ -1,66 +1,33 @@
 env:
   global:
     TERM=dumb
-
-group: edge
-dist: trusty
-
+group: trusty_lts
 language: java
 jdk:
-  - openjdk8
-  - oraclejdk8
-
+- openjdk8
+- oraclejdk8
 install: true
 before_install:
-  # helper wait_for function, usage: `wait_for 8080`
-  - >
-    function wait_for {
-      export port=$1
-      while [ "$(sudo lsof -t -i:${port} | wc -l)" == "0" ]; do sleep 1; done;
-    }
-  # helper stop_any function. usage: `stop_any 8080`
-  - >
-    function stop_any {
-      export port=$1
-      sudo kill $(sudo lsof -t -i:$port) | true
-    }
-
-  ## install docker-compose
-  #- sudo apt update
-  #- sudo apt install -y python-pip curl jq libxml2-utils
-  #- sudo pip install docker-compose httpie
-  #- sudo usermod -aG docker $(whoami)
-
-  ## kill port if running
-  - stop_any 27017
-
+- source <(curl -fsSL https://raw.github.com/daggerok/bash-functions/master/main.bash)
+- stop_any 27017
 script:
-  # all
-  - export ROOT=$PWD
-  - >
-    for path in \
-      reactive-secured-sse \
-      reactive-kotlin-see \
-      spring-kotlin-example \
-    ; do
-
-      cd "$ROOT/$path"
-      bash gradlew clean build
-
-    done;
-
-  # 01 e2e
-  - cd $ROOT/spring-kotlin-example
-  - bash gradlew clean build
-  - sudo mkdir -p /var/app
-  - sudo mv -f ./app/build/libs/*.jar /var/app/01.jar
-  - sudo ln -s /var/app/01.jar /etc/init.d/01
-  - sudo service 01 start
-  - wait_for 8080
-  - sudo service 01 stop
-  - stop_any 8080
-
-cache:
-  directories:
-    - $HOME/.m2/
-    - $HOME/.gradle
+- export ROOT=$PWD
+- >
+  for path in \
+    reactive-secured-sse \
+    reactive-kotlin-see \
+    spring-kotlin-example \
+  ; do
+    cd "$ROOT/$path"
+    bash gradlew clean build
+  done;
+# 01 e2e
+- cd $ROOT/spring-kotlin-example
+- bash gradlew clean build
+- sudo mkdir -p /var/app
+- sudo mv -f ./app/build/libs/*.jar /var/app/01.jar
+- sudo ln -s /var/app/01.jar /etc/init.d/01
+- sudo service 01 start
+- wait_for 8080
+- sudo service 01 stop
+- stop_any 8080
