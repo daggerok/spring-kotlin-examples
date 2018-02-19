@@ -19,6 +19,10 @@ This repository contains some my kotlin examples and links to other my repos wit
 . link:../../../spring-5-examples/tree/master/reactive-websocket-sse/[Reactive WebSocket SSE]
 . link:https://github.com/daggerok/spring-examples/tree/master/axon-counter[Kotlin Axon Counter example]
 
+other repos:
+
+. link:https://github.com/daggerok/kotlin-examples/[Kotlin Examples]
+
 links:
 
 . link:https://docs.spring.io/spring/docs/current/spring-framework-reference/kotlin.html[Reference]
