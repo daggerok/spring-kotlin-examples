@@ -10,7 +10,7 @@ jdk: oraclejdk8
 install: true
 before_install:
 - sudo apt update -y >/dev/null 2>&1 || true
-- sudo apt install -y --no-istall-recommends python-pip
+- sudo apt install -y --no-install-recommends python-pip
 - suod pip install httpie >/dev/null 2>&1
 - source <(curl -fsSL https://raw.github.com/daggerok/bash-functions/master/main.bash)
 - stop_any 27017 8080 80
