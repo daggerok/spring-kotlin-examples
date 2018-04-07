@@ -1,0 +1,26 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Testing</title>
+  <link rel="stylesheet" href="/css/style.css" th:href="@{/css/styles.css}">
+</head>
+<body>
+<p>I said <span th:text="${text}"></span> at <span th:text="${localDateTime}"></span></p>
+<ul th:each="user: ${users}">
+  <li>
+    username: <span th:text="${user.username}">username</span><br/>
+    password: <span th:text="${user.password}">password</span><br/>
+    roles:
+    <ul th:each="role: ${user.roles}">
+      <li><span th:text="${role}">role</span></li>
+    </ul>
+  </li>
+</ul>
+</body>
+</html>

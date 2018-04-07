@@ -2,6 +2,7 @@
 
 This repository contains some my kotlin examples and links to other my repos with kotlin projects:
 
+. link:spring-boot-kotlin-config-props/[Kotlin @ConfigurationProperties using custom Object, Map and List]
 . link:spring-kotlin-example/[Kotlin Example]
 . link:reactive-kotlin-sse/[Reactive Kotlin SSE service and client]
 . link:reactive-secured-sse/[Spring Boot reactive security and Kotlin SSE]

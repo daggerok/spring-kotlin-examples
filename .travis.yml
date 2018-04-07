@@ -1,29 +1,51 @@
 env:
   global:
     TERM=dumb
-group: trusty_lts
-language: java
-jdk:
-- openjdk8
-- oraclejdk8
+
+jdk: oraclejdk8
+#jdk:
+#- openjdk8
+#- oraclejdk8
+
 install: true
 before_install:
+- sudo apt update -y >/dev/null 2>&1 || true
+- sudo apt install -y --no-istall-recommends python-pip
+- suod pip install httpie >/dev/null 2>&1
 - source <(curl -fsSL https://raw.github.com/daggerok/bash-functions/master/main.bash)
-- stop_any 27017
+- stop_any 27017 8080 80
+
 script:
-- export ROOT=$PWD
+- export root=$(pwd)
+
+- cd $root/spring-boot-kotlin-config-props
+- bash ./gradlew >/dev/null 2>&1
+- bash ./build/libs/*.jar &
+- wait_for 8080
+- http :8080/
+- http :8080/api
+- stop_any 8080 80
+- bash ./mvnw >/dev/null 2>&1
+- bash ./target/*.jar &
+- wait_for 8080
+- http :8080/
+- http :8080/api
+- stop_any 8080 80
+
 - >
   for path in \
+    spring-boot-kotlin-config-props \
     reactive-secured-sse \
     reactive-kotlin-see \
     spring-kotlin-example \
   ; do
-    cd "$ROOT/$path"
-    bash gradlew clean build
+    cd "$root/$path"
+    bash gradlew clean build >/dev/null 2>&1
   done;
+
 # 01 e2e
-- cd $ROOT/spring-kotlin-example
-- bash gradlew clean build
+- cd $root/spring-kotlin-example
+- bash gradlew clean build >/dev/null 2>&1
 - sudo mkdir -p /var/app
 - sudo mv -f ./app/build/libs/*.jar /var/app/01.jar
 - sudo ln -s /var/app/01.jar /etc/init.d/01

@@ -1,0 +1,13 @@
+gdpr:
+  users:
+    user:
+      username: user
+      password: user
+      roles:
+      - USER
+    admin:
+      username: admin
+      password: admin
+      roles:
+      - USER
+      - ADMIN
