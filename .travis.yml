@@ -9,9 +9,9 @@ jdk: oraclejdk8
 
 install: true
 before_install:
-- sudo apt update -y >/dev/null 2>&1 || true
-- sudo apt install -y --no-install-recommends python-pip >/dev/null 2>&1
-- sudo pip install httpie >/dev/null 2>&1
+- sudo apt update -y >/dev/null || true
+- sudo apt install -y --no-install-recommends python-pip >/dev/null
+- sudo pip install httpie >/dev/null
 - source <(curl -fsSL https://raw.github.com/daggerok/bash-functions/master/main.bash)
 - stop_any 27017 8080 80
 
@@ -19,13 +19,13 @@ script:
 - export root=$(pwd)
 
 - cd $root/spring-boot-kotlin-config-props
-- bash ./gradlew >/dev/null 2>&1
+- bash ./gradlew >/dev/null
 - bash ./build/libs/*.jar &
 - wait_for 8080
 - http :8080/
 - http :8080/api
 - stop_any 8080 80
-- bash ./mvnw >/dev/null 2>&1
+- bash ./mvnw >/dev/null
 - bash ./target/*.jar &
 - wait_for 8080
 - http :8080/
@@ -40,12 +40,12 @@ script:
     spring-kotlin-example \
   ; do
     cd "$root/$path"
-    bash gradlew clean build >/dev/null 2>&1
+    bash gradlew clean build >/dev/null
   done;
 
 # 01 e2e
 - cd $root/spring-kotlin-example
-- bash gradlew clean build >/dev/null 2>&1
+- bash gradlew clean build >/dev/null
 - sudo mkdir -p /var/app
 - sudo mv -f ./app/build/libs/*.jar /var/app/01.jar
 - sudo ln -s /var/app/01.jar /etc/init.d/01
