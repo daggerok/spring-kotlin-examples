@@ -14,7 +14,7 @@ class RoutesWebConfig {
 
   @Bean
   fun routes(gdprProps: GDPRProperties) = router {
-    ("/").nest {
+    "/".nest {
       "/api".nest {
         contentType(APPLICATION_JSON_UTF8)
         GET("/**") {
