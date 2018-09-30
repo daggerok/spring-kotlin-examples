@@ -28,4 +28,6 @@ other repos:
 
 links:
 
+- link:https://www.youtube.com/watch?v=btNIey_2Zdw[YouTube: Bootiful Kotlin by Sébastien Deleuze and Josh Long @ Spring I/O 2018]
+- link:https://www.youtube.com/watch?v=8yHc0beE164[YouTube: Why Spring Loves Kotlin - Sébastien Deleuze]
 - link:https://docs.spring.io/spring/docs/current/spring-framework-reference/kotlin.html[Reference]
